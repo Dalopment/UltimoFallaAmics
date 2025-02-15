@@ -2,11 +2,114 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App_Amics.Vistas.Registrarse"
-             Title="Registrarse">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Registrarse"
+             BackgroundColor="#f4f4f4">
+
+    <ScrollView>
+        <VerticalStackLayout Margin="30,50,30,30"
+                             Spacing="10"
+                             VerticalOptions="Center">
+
+            <Label Text="Registro de Usuario"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#333"/>
+
+            <Frame Padding="10" BackgroundColor="White" CornerRadius="10" HasShadow="True">
+                <VerticalStackLayout Spacing="10">
+
+                    <Entry Placeholder="Nombre"
+                           PlaceholderColor="Gray"
+                           TextColor="Black"
+                           BackgroundColor="Transparent"
+                           x:Name="nombreEntry"/>
+
+                    <Entry Placeholder="Primer apellido"
+                           PlaceholderColor="Gray"
+                           TextColor="Black"
+                           BackgroundColor="Transparent"
+                           x:Name="primerApellidoEntry"/>
+
+                    <Entry Placeholder="Segundo apellido"
+                           PlaceholderColor="Gray"
+                           TextColor="Black"
+                           BackgroundColor="Transparent"
+                           x:Name="segundoApellidoEntry"/>
+
+                    <!-- Fecha de nacimiento en la misma línea horizontal -->
+                    <Frame Padding="10" BackgroundColor="White" CornerRadius="10" HasShadow="True">
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Label Text="Fecha de nacimiento"
+                                   Margin="0,0,0,0"
+                                   TextColor="Gray"
+                                   VerticalOptions="Center"/>
+
+                            <DatePicker x:Name="fechaNacimientoPicker"
+                                        Format="dd/MM/yyyy"
+                                        TextColor="Black"
+                                        BackgroundColor="Transparent"
+                                        HorizontalOptions="EndAndExpand"  
+                                        VerticalOptions="Center" />
+                         
+                        </StackLayout>
+                    </Frame>
+
+                    <Entry Placeholder="Correo Electrónico"
+                           PlaceholderColor="Gray"
+                           TextColor="Black"
+                           BackgroundColor="Transparent"
+                           Keyboard="Email"
+                           x:Name="correoElectronicoEntry"/>
+
+                    <!-- Entrada para la contraseña -->
+                    <StackLayout Orientation="Horizontal">
+                        <Entry x:Name="registroContraseñaEntry"
+                               Placeholder="Contraseña"
+                               PlaceholderColor="Gray"
+                               TextColor="Black"
+                               BackgroundColor="Transparent"
+                               IsPassword="True"
+                               HorizontalOptions="FillAndExpand"/>
+
+                        <!-- Botón para ver/ocultar la contraseña -->
+                        <ImageButton x:Name="verContraseñaButton"
+                                     Source="ojo.png"  
+                                     Clicked="verContraseñaButton_Clicked"
+                                     BackgroundColor="Transparent"
+                                     WidthRequest="40"
+                                     HeightRequest="40"/>
+                    </StackLayout>
+
+                    <!-- Repite la contraseña -->
+                    <StackLayout Orientation="Horizontal">
+                        <Entry x:Name="registroContraseña2Entry"
+                               Placeholder="Vuelve a introducir la contraseña"
+                               PlaceholderColor="Gray"
+                               TextColor="Black"
+                               BackgroundColor="Transparent"
+                               IsPassword="True"
+                               HorizontalOptions="FillAndExpand"/>
+                        <ImageButton x:Name="verContraseña2Button"
+                                     Source="ojo.png"
+                                     Clicked="verContraseña2Button_Clicked"
+                                     BackgroundColor="Transparent"
+                                     WidthRequest="40"
+                                     HeightRequest="40"/>
+                    </StackLayout>
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button Text="Registrarse"
+                    Clicked="Aceptar_Registro_Clicked"
+                    BackgroundColor="#007AFF"
+                    TextColor="White"
+                    FontSize="18"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    HorizontalOptions="Fill"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
