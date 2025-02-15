@@ -8,13 +8,6 @@
 
         <VerticalStackLayout Margin="20,150,20,0" VerticalOptions="Center" HorizontalOptions="Center">
 
-            <Entry Placeholder="Nombre de usuario"
-                   PlaceholderColor="Black"
-                   TextColor="Black"
-                   BackgroundColor="White"
-                   Margin="5"
-                   x:Name="nombreUsuarioEntry"/>
-
             <Entry Placeholder="Contraseña"
                    PlaceholderColor="Black"
                    TextColor="Black"

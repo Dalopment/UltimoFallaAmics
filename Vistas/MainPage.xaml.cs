@@ -29,6 +29,7 @@ public partial class MainPage : ContentPage
             await DisplayAlert("Error", "Valor introducido no válido", "Aceptar");
             DniEntry.Text = string.Empty;
             DniEntry.Focus();
+            return;
         }
 
         // Verificar en Firebase si el DNI existe
@@ -38,11 +39,18 @@ public partial class MainPage : ContentPage
         if (dniExiste)
         {
             await DisplayAlert("Éxito", "Bienvenido a la Falla Amics de Naquera", "Aceptar");
+            DniEntry.Text = string.Empty;
+            DniEntry.Focus();
             await Shell.Current.GoToAsync("//Login");
         }
         else
         {
-            await DisplayAlert("Error", "El DNI introducido no pertenece a ningún fallero de la Falla Amics \nSi quieres pertener a la Falla Amics puedes escribirnos a través de nuestra cuenta de Facebook", "Aceptar");
+            var facebookUrl = "https://www.facebook.com/p/Falla-Amics-de-N%C3%A1quera-100064316606908/?locale=es_ES";
+            var instagramUrl = "https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Ffalla_amics_naquera%2F&is_from_rle";
+            await DisplayAlert("Error", "El DNI introducido no pertenece a ningún fallero\nSi quieres pertener a la Falla Amics puedes escribirnos a través de nuestra cuenta de Instagram", "Aceptar");
+            await Launcher.OpenAsync(instagramUrl);
+            DniEntry.Text = string.Empty;
+            DniEntry.Focus();
         }
     }
 
